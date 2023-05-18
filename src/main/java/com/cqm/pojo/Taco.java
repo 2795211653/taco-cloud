@@ -1,4 +1,4 @@
-package com.cqm.ingredient;
+package com.cqm.pojo;
 
 import lombok.Data;
 

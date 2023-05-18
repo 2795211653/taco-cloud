@@ -1,10 +1,7 @@
-package com.cqm.ingredient;
+package com.cqm.pojo;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
-
-import java.lang.reflect.Type;
 
 @Data
 @RequiredArgsConstructor

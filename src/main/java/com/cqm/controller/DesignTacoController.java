@@ -49,10 +49,17 @@ public class DesignTacoController {
                 .collect(Collectors.toList());
     }
 
+    //处理post请求
     @PostMapping
     public String processDesign(Taco design){
         log.info("Processing design:"+design);
         return "redirect:/orders/current";
     }
+
+
+
+
+
+
 
 }

@@ -1,21 +1,31 @@
 package com.cqm.controller;
 
 
+import com.cqm.pojo.Order;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Slf4j
-@Component
+@Controller
 @RequestMapping("/orders")
 public class OrderController {
-    @GetMapping
+    @GetMapping("/current")
     public String orderForm(Model model){
         model.addAttribute("order",new Order());
         return "orderForm";
+    }
+
+    //处理taco订单提交
+    @PostMapping
+    public String processOrder(Order order){
+        log.info("菜单提交："+order);
+        return "redirect:/";
     }
 
 

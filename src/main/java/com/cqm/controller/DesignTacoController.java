@@ -2,9 +2,11 @@ package com.cqm.controller;
 
 import com.cqm.pojo.Ingredient;
 import com.cqm.pojo.Taco;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,15 +53,12 @@ public class DesignTacoController {
 
     //处理post请求
     @PostMapping
-    public String processDesign(Taco design){
+    public String processDesign(@Valid Taco design, Errors errors){
+        if(errors.hasErrors()){
+            return "design";
+        }
         log.info("Processing design:"+design);
         return "redirect:/orders/current";
     }
-
-
-
-
-
-
 
 }
